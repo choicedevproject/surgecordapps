@@ -12,12 +12,10 @@
     :root {
       --bg: #090b0f;
       --panel: #11151d;
-      --panel-hover: #171d27;
       --border: rgba(255,255,255,.09);
       --text: #f4f7fb;
       --muted: #9aa5b4;
       --blue: #8bbcff;
-      --blue-dark: #4b94ff;
       --green: #8bd8b0;
       --radius: 20px;
       --max-width: 1100px;
@@ -116,7 +114,6 @@
       font-size: 12px;
       font-weight: 750;
       transition: .18s ease;
-      cursor: pointer;
     }
 
     .button:hover {
@@ -133,12 +130,6 @@
     .primary:hover { background: #acd1ff; }
 
     .secondary { background: rgba(255,255,255,.035); }
-
-    .disabled {
-      color: #8993a0;
-      background: rgba(255,255,255,.025);
-      cursor: default;
-    }
 
     .hero {
       padding: 100px 0 75px;
@@ -420,17 +411,11 @@
       white-space: nowrap;
     }
 
-    .notice {
-      margin-top: 15px;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      color: var(--muted);
-      background: rgba(255,255,255,.02);
-      font-size: 12px;
+    .release-button {
+      color: #8993a0;
+      background: rgba(255,255,255,.025);
+      cursor: default;
     }
-
-    .notice strong { color: #d9e3ef; }
 
     .feature-grid {
       display: grid;
@@ -482,7 +467,10 @@
     .cta h2 { font-size: clamp(25px,3vw,32px); }
     .cta p:last-child { color: var(--muted); font-size: 13px; }
 
-    footer { margin-top: 30px; border-top: 1px solid var(--border); }
+    footer {
+      margin-top: 30px;
+      border-top: 1px solid var(--border);
+    }
 
     .footer-inner {
       min-height: 90px;
@@ -542,9 +530,11 @@
 
       <div class="nav-links">
         <a href="#products">Products</a>
-        <a href="#releases">Downloads</a>
+        <a href="#releases">Latest Builds</a>
         <a href="#about">About</a>
-        <a class="button secondary" href="https://choicedevproject.github.io/surgecord/" target="_blank" rel="noopener noreferrer">Surgecord ↗</a>
+        <a class="button secondary"
+           href="https://choicedevproject.github.io/surgecord/"
+           target="_blank" rel="noopener noreferrer">Surgecord ↗</a>
       </div>
     </nav>
   </div>
@@ -563,17 +553,17 @@
 
       <div class="hero-actions">
         <a class="button primary" href="#products">Explore applications ↓</a>
-        <a class="button secondary" href="#releases">Browse releases</a>
+        <a class="button secondary" href="#releases">Explore latest builds</a>
       </div>
 
-      <div class="hero-note">Release availability depends on the published build.</div>
+      <div class="hero-note">Explore product releases and version information.</div>
     </header>
 
     <section class="section container" id="products">
       <div class="section-heading">
         <p class="kicker">Applications</p>
         <h2>Meet the current lineup.</h2>
-        <p>Explore each product and jump directly to its specific release.</p>
+        <p>Choose an application to jump directly to its latest experimental or test builds.</p>
       </div>
 
       <div class="product-grid">
@@ -593,7 +583,7 @@
             </div>
           </div>
 
-          <span class="status">Alpha releases listed</span>
+          <span class="status">Alpha development</span>
 
           <p class="product-description">
             A finance-focused application designed around tracking,
@@ -601,8 +591,8 @@
           </p>
 
           <div class="card-actions">
-            <a class="button primary" href="#finsecure-download-stable">Stable release ↓</a>
-            <a class="button secondary" href="#finsecure-download-experimental">Experimental ↓</a>
+            <a class="button primary" href="#finsecure-latest">Latest experimental build ↓</a>
+            <a class="button secondary" href="#finsecure-test-build">Alpha test builds ↓</a>
           </div>
         </article>
 
@@ -621,15 +611,15 @@
             </div>
           </div>
 
-          <span class="status">Initial Alpha · v0.1.0.1</span>
+          <span class="status">Alpha test build</span>
 
           <p class="product-description">
-            A work-focused app for organizing work logs and reviewing
+            A work-focused application for organizing work logs and reviewing
             information such as earnings, time spent, and deliveries.
           </p>
 
           <div class="card-actions">
-            <a class="button primary" href="#workplace-download-001">Workplace v0.1.0.1 ↓</a>
+          <a class="button primary" href="#workplace-latest">Workplace v0.1.2 ↓</a>
           </div>
         </article>
       </div>
@@ -637,58 +627,80 @@
 
     <section class="section container" id="releases">
       <div class="section-heading">
-        <p class="kicker">Release center</p>
-        <h2>Find your version.</h2>
-        <p>Select a release to reach its entry. Download links activate when the actual public builds are uploaded.</p>
+        <p class="kicker">Latest experimental &amp; test builds</p>
+        <h2>Explore the latest builds.</h2>
+        <p>Browse the current version entries for FinSecure and Workplace.</p>
       </div>
 
       <div class="release-panel">
         <div class="release-header">
           <div>
             <h3>FinSecure</h3>
-            <p>Alpha release history</p>
+            <p>Experimental and Alpha test builds</p>
           </div>
-          <span class="release-label">Finance</span>
+          <span class="release-label">FinSecure</span>
         </div>
 
-        <div class="release-row" id="finsecure-download-stable">
-          <div class="version">v0.1.0.1</div>
-          <div class="release-info">
-            <div class="release-name">Initial Alpha</div>
-            <div class="release-note">Initial Alpha · Stable</div>
-            <div class="release-meta"><span class="tag stable">Stable Alpha</span></div>
-          </div>
-          <span class="button disabled">Coming soon</span>
-        </div>
-
-        <div class="release-row" id="finsecure-download-bill-fix">
-          <div class="version">v0.1.0.31</div>
-          <div class="release-info">
-            <div class="release-name">Bill Bug Fix</div>
-            <div class="release-note">FinSecure Alpha release</div>
-            <div class="release-meta"><span class="tag">Alpha</span></div>
-          </div>
-          <span class="button disabled">Coming soon</span>
-        </div>
-
-        <div class="release-row" id="finsecure-download-experimental">
+        <div class="release-row" id="finsecure-latest">
           <div class="version">v0.1.0.32</div>
           <div class="release-info">
             <div class="release-name">Super Bug Fix</div>
-            <div class="release-note">Experimental build</div>
-            <div class="release-meta"><span class="tag experimental">Experimental</span></div>
+            <div class="release-note">Latest recorded experimental build</div>
+            <div class="release-meta">
+              <span class="tag experimental">Experimental Alpha</span>
+              <span class="tag">Latest experimental</span>
+            </div>
           </div>
-          <span class="button disabled">Coming soon</span>
+          <span class="button release-button">Coming soon</span>
         </div>
 
-        <div class="release-row" id="finsecure-download-alpha">
-          <div class="version">v0.1.0.3</div>
+        <div class="release-row" id="finsecure-test-build">
+          <div class="version">v0.1.0.5</div>
+          <div class="release-info">
+            <div class="release-name">Alpha Test Build</div>
+            <div class="release-note">FinSecure test build</div>
+            <div class="release-meta">
+              <span class="tag">Alpha</span>
+              <span class="tag">Test Build</span>
+            </div>
+          </div>
+          <span class="button release-button">Coming soon</span>
+        </div>
+
+        <div class="release-row" id="finsecure-alpha-045">
+          <div class="version">v0.1.0.45</div>
+          <div class="release-info">
+            <div class="release-name">Alpha Build</div>
+            <div class="release-note">FinSecure Alpha version entry</div>
+            <div class="release-meta">
+              <span class="tag">Alpha</span>
+            </div>
+          </div>
+          <span class="button release-button">Coming soon</span>
+        </div>
+
+        <div class="release-row" id="finsecure-alpha-04">
+          <div class="version">v0.1.0.4</div>
           <div class="release-info">
             <div class="release-name">Alpha Release</div>
-            <div class="release-note">FinSecure Alpha release</div>
-            <div class="release-meta"><span class="tag">Alpha</span></div>
+            <div class="release-note">FinSecure Alpha version entry</div>
+            <div class="release-meta">
+              <span class="tag">Alpha</span>
+            </div>
           </div>
-          <span class="button disabled">Coming soon</span>
+          <span class="button release-button">Coming soon</span>
+        </div>
+
+        <div class="release-row" id="finsecure-stable">
+          <div class="version">v0.1.0.1</div>
+          <div class="release-info">
+            <div class="release-name">Initial Alpha</div>
+            <div class="release-note">Initial stable Alpha release</div>
+            <div class="release-meta">
+              <span class="tag stable">Stable Alpha</span>
+            </div>
+          </div>
+          <span class="button release-button">Coming soon</span>
         </div>
       </div>
 
@@ -696,27 +708,23 @@
         <div class="release-header">
           <div>
             <h3>Workplace</h3>
-            <p>First listed release</p>
+            <p>Latest Alpha test build</p>
           </div>
           <span class="release-label">Workplace</span>
         </div>
 
-        <div class="release-row" id="workplace-download-001">
-          <div class="version">v0.1.0.1</div>
+        <div class="release-row" id="workplace-latest">
+       <div class="version">v0.1.2</div>
           <div class="release-info">
-            <div class="release-name">Workplace — Initial Alpha</div>
-            <div class="release-note">First listed Workplace release</div>
-            <div class="release-meta"><span class="tag">Alpha</span></div>
+            <div class="release-name">Alpha Test Build</div>
+            <div class="release-note">Latest listed Workplace test build</div>
+            <div class="release-meta">
+              <span class="tag">Alpha</span>
+              <span class="tag">Test Build</span>
+            </div>
           </div>
-          <span class="button disabled">Coming soon</span>
+          <span class="button release-button">Coming soon</span>
         </div>
-      </div>
-
-      <div class="notice">
-        <strong>Download setup:</strong>
-        The release navigation works, but the actual downloads are not connected yet.
-        Once each build is uploaded to Cloudflare R2, replace its “Coming soon” label
-        with a link to that file's public URL.
       </div>
     </section>
 
@@ -776,7 +784,7 @@
 
       <div class="footer-links">
         <a href="#products">Products</a>
-        <a href="#releases">Downloads</a>
+        <a href="#releases">Latest Builds</a>
         <a href="https://choicedevproject.github.io/surgecord/" target="_blank" rel="noopener noreferrer">Surgecord ↗</a>
       </div>
     </div>
